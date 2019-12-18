@@ -16,6 +16,9 @@ class ViewController: UIViewController {
 //            print(location ?? "获取位置失败: " + error.debugDescription)
         }) { (error, placemark) in
 //            print(placemark ?? "逆地址解析失败: " + error.debugDescription)
+            let vc = UIAlertController(title: "当前地址", message: placemark?.formatAddress, preferredStyle: .alert)
+            vc.addAction(UIAlertAction(title: "确定", style: .cancel, handler: nil))
+            self.present(vc, animated: true, completion: nil)
         }
     }
 
